@@ -16,6 +16,8 @@ import TextTruncate from 'react-text-truncate';
 import Link from '@material-ui/core/Link';
 import {Link as RouterLink} from 'react-router-dom';
 
+const databaseURL = "https://reactandflask.firebaseio.com";
+
 const styles = theme => ({
     fab: {
         position: 'fixed',
@@ -26,8 +28,6 @@ const styles = theme => ({
         display: 'none'
     }
 });
-
-const databaseURL = "https://reactandflask.firebaseio.com";
 
 class Texts extends React.Component {
     constructor(props) {
@@ -122,7 +122,7 @@ class Texts extends React.Component {
                 fileContent: text
             })
         }
-        reader.readAsText(e.target.files[0], "EUC-KR");
+        reader.readAsText(e.target.files[0], "UTF-8");
         this.setState({
             fileName: e.target.value
         })

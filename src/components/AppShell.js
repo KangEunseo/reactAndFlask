@@ -24,7 +24,9 @@ class AppShell extends React.Component {
             toggle: false
         };
     }
+
     handleDrawerToggle = () => this.setState({toggle: !this.state.toggle})
+    
     render() {
         const { classes } = this.props;
         return (

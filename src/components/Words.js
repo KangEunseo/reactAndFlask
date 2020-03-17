@@ -13,6 +13,8 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import TextField from '@material-ui/core/TextField';
 
+const databaseURL = "https://reactandflask.firebaseio.com";
+
 const styles = theme => ({
     fab: {
         position: 'fixed',
@@ -20,8 +22,6 @@ const styles = theme => ({
         right: '20px'
     }
 });
-
-const databaseURL = "https://reactandflask.firebaseio.com";
 
 class Words extends React.Component {
     constructor() {
