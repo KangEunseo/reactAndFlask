@@ -33,6 +33,7 @@ class Words extends React.Component {
             weight: ''
         };
     }
+
     _get() {
         fetch(`${databaseURL}/words.json`).then(res => {
             if(res.status != 200){
@@ -41,6 +42,7 @@ class Words extends React.Component {
             return res.json();
         }).then(words => this.setState({ words: words }));
     }
+
     _post(word) {
         return fetch(`${databaseURL}/words.json`, {
             method: 'POST',
@@ -56,6 +58,7 @@ class Words extends React.Component {
             this.setState({words: nextState});
         });
     }
+
     _delete(id) {
         return fetch(`${databaseURL}/words/${id}.json`, {
             method: 'DELETE'
@@ -70,14 +73,17 @@ class Words extends React.Component {
             this.setState({words: nextState});
         })
     }
+
     handleDialogToggle = () => this.setState({
         dialog: !this.state.dialog
     })
+
     handleValueChange = (e) => {
         let nextState = {};
         nextState[e.target.name] = e.target.value;
         this.setState(nextState);
     }
+
     handleSubmit = () => {
         const word = {
             word: this.state.word,
@@ -89,12 +95,15 @@ class Words extends React.Component {
         }
         this._post(word);
     }
+
     handleDelete = (id) => {
         this._delete(id);
     }
+
     componentDidMount(){
         this._get();
     }
+    
     render() {
         const { classes } = this.props;
         return (
